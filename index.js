@@ -5,12 +5,12 @@ import queue from "./queue.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 const server = http.createServer(app);
 const io = new IOServer(server, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://clearsoftwares.xyz",
     },
 });
 
@@ -63,7 +63,7 @@ app.get("/", function (req, res) {
     // HTTP stream for music
     app.get("/stream", (req, res) => {
         const { id, client } = queue.addClient();
-
+        console.log(id,client);
         res.set({
             "Content-Type": "audio/mp3",
             "Transfer-Encoding": "chunked",

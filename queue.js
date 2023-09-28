@@ -2,12 +2,13 @@ import { v4 as uuid } from "uuid";
 import { PassThrough } from "stream";
 import Throttle from "throttle";
 import { ffprobe } from "@dropb/ffprobe";
-import ffprobeStatic from "ffprobe-static";
+// import ffprobeStatic from "ffprobe-static";
 import { readdir } from "fs/promises";
 import { createReadStream } from "fs";
 import { extname, join } from "path";
 
-ffprobe.path = ffprobeStatic.path;
+// ffprobe.path = ffprobeStatic.path;
+// "ffprobe-static": "^3.1.0",
 
 class Queue {
     constructor() {
