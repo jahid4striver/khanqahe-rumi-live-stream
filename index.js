@@ -10,7 +10,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new IOServer(server, {
     cors: {
-        origin: "https://clearsoftwares.xyz",
+        origin: "http://localhost:5173",
     },
 });
 
