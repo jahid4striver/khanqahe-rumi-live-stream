@@ -4,13 +4,15 @@ import { Server as IOServer } from "socket.io";
 import queue from "./queue.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import cors from "cors";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
+app.use(cors());
 const server = http.createServer(app);
 const io = new IOServer(server, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://demo.clearsoftwares.xyz/",
     },
 });
 
@@ -22,6 +24,7 @@ app.use(express.static(outputDir));
 
 app.get("/", function (req, res) {
     // res.sendFile(path.join(outputDir, "index.html"));
+    console.log("Received a request at the root endpoint.");
     res.send('Live Audio Server Running');
 });
 
